@@ -1,0 +1,46 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:j.0="http://example.org/"
+    xmlns:s4bldg="https://saref.etsi.org/saref4bldg/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:saref="https://saref.etsi.org/core/"
+    xmlns:vann="http://purl.org/vocab/vann/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Class rdf:about="https://saref.etsi.org/saref4bldg/PhysicalObject">
+    <rdfs:label xml:lang="en">Physical object</rdfs:label>
+    <rdfs:comment xml:lang="en">Any Object that has a proper space region.  (Definition extracted from DUL ontology)</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf>
+              <rdf:List>
+                <rdf:rest>
+                  <rdf:List>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    <rdf:first rdf:resource="https://saref.etsi.org/saref4bldg/PhysicalObject"/>
+                  </rdf:List>
+                </rdf:rest>
+                <rdf:first rdf:resource="https://saref.etsi.org/saref4bldg/BuildingSpace"/>
+              </rdf:List>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty rdf:resource="https://saref.etsi.org/saref4bldg/isContainedIn"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="https://saref.etsi.org/saref4bldg/PhysicalObject"/>
+        <owl:onProperty rdf:resource="https://saref.etsi.org/saref4bldg/contains"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <j.0:isUsedBy rdf:resource="https://saref.etsi.org/saref4inma/v1.1.2/"/>
+    <rdfs:isDefinedBy rdf:resource="https://saref.etsi.org/saref4bldg/v1.1.2/"/>
+    <j.0:localName>PhysicalObject</j.0:localName>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </owl:Class>
+</rdf:RDF>
