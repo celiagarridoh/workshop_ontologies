@@ -1,0 +1,35 @@
+@prefix :      <https://saref.etsi.org/saref4bldg/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix s4bldg: <https://saref.etsi.org/saref4bldg/> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix saref: <https://saref.etsi.org/core/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+
+s4bldg:PhysicalObject
+        a                               owl:Class , rdfs:Resource ;
+        rdfs:comment                    "Any Object that has a proper space region.  (Definition extracted from DUL ontology)"@en ;
+        rdfs:isDefinedBy                <https://saref.etsi.org/saref4bldg/v1.1.2/> ;
+        rdfs:label                      "Physical object"@en ;
+        rdfs:subClassOf                 [ a                  owl:Restriction ;
+                                          owl:allValuesFrom  [ a            owl:Class ;
+                                                               owl:unionOf  [ a          rdf:List ;
+                                                                              rdf:first  s4bldg:BuildingSpace ;
+                                                                              rdf:rest   [ a          rdf:List ;
+                                                                                           rdf:first  s4bldg:PhysicalObject ;
+                                                                                           rdf:rest   ()
+                                                                                         ]
+                                                                            ]
+                                                             ] ;
+                                          owl:onProperty     s4bldg:isContainedIn
+                                        ] ;
+        rdfs:subClassOf                 [ a                  owl:Restriction ;
+                                          owl:allValuesFrom  s4bldg:PhysicalObject ;
+                                          owl:onProperty     s4bldg:contains
+                                        ] ;
+        <http://example.org/isUsedBy>   <https://saref.etsi.org/saref4inma/v1.1.2/> ;
+        <http://example.org/localName>  "PhysicalObject" .
